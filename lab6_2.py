@@ -88,12 +88,9 @@ class Window2(tkinter.Frame):
                         patch = laplacian[i - 1:i + 2, j - 1:j + 2]
                         if np.min(patch) < 0 and np.max(patch) > 0:
                             zero_cross[i, j] = 255
-
-                cv2.imshow("Original", image)
                 cv2.imshow("Zero Crossing", zero_cross)
-
                 cv2.waitKey(0)
-                cv2.destroyAllWindows()
+                cv2.destroyWindow("Zero Crossing")
              except Exception as e:
                 messagebox.showerror("Помилка", f"Файл неможливо відкрити")
         else:
